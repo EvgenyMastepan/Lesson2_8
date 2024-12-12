@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ViewController: UICollectionViewDataSource {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -20,9 +20,11 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
-        print ("pressed ", indexPath.item)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ContentViewController(numPage: indexPath.item)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension UIView {

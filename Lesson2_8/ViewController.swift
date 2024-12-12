@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         $0.showsVerticalScrollIndicator = false
         $0.contentInset = UIEdgeInsets(top: leftIndent, left: leftIndent, bottom: leftIndent, right: leftIndent)
         $0.dataSource = self
+        $0.delegate = self
         $0.register(CellView.self, forCellWithReuseIdentifier: CellView.identifier)
         return $0
     }(UICollectionView(frame: view.frame, collectionViewLayout: layout))
